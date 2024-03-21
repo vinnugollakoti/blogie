@@ -28,6 +28,8 @@ const Home = () => {
             <Link to="/blog" className="link">
               <h3>Create a Blog</h3>
             </Link>
+            <Link to="/about" className="link">
+            <h3>About</h3></Link>
           </div>
         </div>
       </nav>
@@ -42,7 +44,8 @@ const Home = () => {
         <div className="no-blogs">
           <center>
           <h2 className="first-author">Be the first author of</h2>
-          <img src={logo2} alt="" className="logo2" /></center>
+          <img src={logo2} alt="" className="logo2" /></center><Link to="/blog" className="link">
+          <button className="btn-12"><span>Create a Blog</span></button></Link>
         </div>
       ) : (
         blogs.map((blog) => (

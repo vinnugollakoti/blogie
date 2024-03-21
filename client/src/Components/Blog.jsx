@@ -33,6 +33,10 @@ const Blog = () => {
             <Link to="/" className="link">
               <h3>Home</h3>
             </Link>
+            <Link to="/about" className="link">
+            <h3 >
+              About
+            </h3></Link>
           </div>
         </div>
       </nav>
@@ -56,9 +60,17 @@ const Blog = () => {
           <p>Write your Blog : </p><br />
           <textarea name="blog" id="" cols="55" rows="25" onChange={(e) => setBlog(e.target.value)}></textarea>
         </div>
-        <button className="submit" type="submit">Publish the blog</button>
+        <button className="menu__button">
+  <span>Hover me!</span>
+</button>
       </form>
-    </div></center>
+    </div>
+    <div className="footer">
+        <center>
+          <p>@copyright 2024</p>
+          <p>developed by vinnugollakoti❤️</p>
+        </center>
+      </div></center>
   </div>;
 };
 
