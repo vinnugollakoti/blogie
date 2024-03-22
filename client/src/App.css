@@ -106,14 +106,17 @@ textarea:hover {
 .logo2 {
   width: 30%;
 }
+/* CSS for footer */
 .footer {
-  /* position: fixed; */
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  border-top: 2px solid black;
-  background-color: #6b6b6b31;
-  text-align: center;
+  background-color: #37373746;
+  color: #fff; 
+  padding-bottom: 10px; 
+  text-align: center; 
+  position: fixed; 
+  left: 0; 
+  bottom: 0; 
+  height: 5%;
+  width: 100%; 
 }
 .about {
   margin-top: 3%;
