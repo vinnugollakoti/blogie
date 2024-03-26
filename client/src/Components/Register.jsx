@@ -1,38 +1,55 @@
-import { useState } from 'react';
+import  { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import ReCAPTCHA from "react-google-recaptcha";
 import logo2 from "../assets/logo2.png";
+
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    axios
-      .post('http://localhost:3001/auth/signup', {
-        username,
-        email,
-        password,
-      })
-      .then((response) => {
+    setError('');
+
+    axios.post('http://localhost:3001/auth/signup', {
+      username,
+      email,
+      password,
+    })
+    .then((response) => {
+      if (isCaptchaVerified) {
         if (response.data.status) {
           setTimeout(() => {
             navigate('/login');
           }, 3000);
         }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000);
-      });
+        console.log("user is verified");
+      } else {
+        alert("Please verify the reCAPTCHA.");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      setError("Registration failed. Please try again later.");
+    })
+    .finally(() => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    });
+  };
+
+  const onChange = () => {
+    setIsCaptchaVerified(true);
   };
 
   return (
@@ -272,11 +289,13 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            <ReCAPTCHA sitekey="6LeDvKQpAAAAAOV1E4YFO_mtTuYwV10huYr5lwPf" onChange={onChange} className='recaptcha' />
             <center>
-              {!loading ? (<button className="btn6" type="submit">
+              {!loading ? (<button className="btn6" type="submit" disabled={!isCaptchaVerified}>
                 Register
               </button>) : null}
             </center>
+            {error && <p className="error-message">{error}</p>}
           </form>
           <div className="register-box1">
             <p className="ask">Have an account ?</p>
