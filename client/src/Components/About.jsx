@@ -34,12 +34,6 @@ const About = () => {
         <br />
         <p>Thank you for being a part of the blogie family❤️</p>
       </div>
-      <div className="footer">
-        <center>
-          <p>@copyright 2024</p>
-          <p>developed by vinnugollakoti❤️</p>
-        </center>
-      </div>
     </div>
   )
 }

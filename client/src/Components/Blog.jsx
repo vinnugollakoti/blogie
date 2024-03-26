@@ -89,12 +89,6 @@ const Blog = () => {
             </button>
           </form>
         </div>
-        <div className="footer">
-          <center>
-            <p>@copyright 2024</p>
-            <p>developed by vinnugollakoti❤️</p>
-          </center>
-        </div>
       </center>
     </div>
   );
