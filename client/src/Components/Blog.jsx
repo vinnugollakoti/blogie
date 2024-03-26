@@ -11,7 +11,7 @@ const Blog = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://blogie-vinay.onrender.com/data", {
+      .post("http://localhost:3001/data", {
         author,
         email,
         heading,

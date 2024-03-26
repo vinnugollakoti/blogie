@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([]); // Renamed state variable to 'blogs'
+  const [blogs, setBlogs] = useState([]); 
 
   useEffect(() => {
     axios
-      .get("https://blogie-vinay.onrender.com/getdata")
+      .get("http://localhost:3001/getdata")
       .then((response) => {
-        console.log(response.data); // Check if data is received
+        console.log(response.data);
         setBlogs(response.data);
       })
       .catch((err) => console.log(err));
